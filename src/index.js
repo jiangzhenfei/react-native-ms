@@ -64,11 +64,12 @@ export class TipModal extends React.Component{
     render(){
         let {
             successIconComponent  = null, //成功自定义图标
-            errorIconComponent    = null  //失败自定义图标
+            errorIconComponent    = null,  //失败自定义图标
+            animationType         = 'fade'
         } = this.props;
         return (
             <Modal
-                animationType={"fade"}
+                animationType={ animationType }
                 transparent={true}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {alert("Modal has been closed.")}}
