@@ -2,6 +2,7 @@
 
 效果图
 ![main](http://47.93.103.19:5900/ms.gif)
+### [看不到效果图请移步](https://www.cnblogs.com/zhenfei-jiang/p/9454352.html)
 
 ### Install react-native-ms
 
