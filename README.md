@@ -41,7 +41,18 @@ export default class App extends Component {
 }
 ```
 ### Props
-#### 1.successIconComponent
+#### 1.animationType
+提示框的出现和消失运动形式 none | fade (default) | slide
+* none  没有任何运动效果
+* fade  从屏幕中间隐现
+* slide 从屏幕地下滑到中间
+```js
+<TipModal ref="tipModal"
+  animationType='slide'
+/>
+```
+
+#### 2.successIconComponent
 组件有默认的成功提示图片，但是并不能符合所有人要求，使用如下
 ```js
 <TipModal ref="tipModal"
@@ -56,7 +67,7 @@ export default class App extends Component {
 />
 ```
 
-#### 2.errorIconComponent
+#### 3.errorIconComponent
 组件有默认的成功提示图片，但是并不能符合所有人要求，使用如下
 ```js
 <TipModal ref="tipModal"
