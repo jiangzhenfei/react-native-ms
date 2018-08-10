@@ -1,8 +1,8 @@
 {
-  "name": "react-native-tips",
+  "name": "react-native-ms",
   "version": "0.0.1",
   "private": false,
-  "license": "MIT", 
+  "license": "ISC", 
   "main": "src/index.js",
   "repository": { 
     "type": "git",
