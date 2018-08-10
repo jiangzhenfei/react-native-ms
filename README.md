@@ -6,7 +6,7 @@ Using npm:
 ```
 npm install react-native-ms --save
 ```
-## Usage
+## Usage 
 Using via `import`:
 
 ```js
@@ -80,4 +80,28 @@ export default class App extends Component {
     />
   }
 />
+```
+
+## ConfirmModal的使用
+```js
+import {Platform, StyleSheet, Text, View,Button} from 'react-native';
+import { ConfirmModal } from 'react-native-ms'
+ 
+ 
+export default class App extends Component {
+　　confirm(){
+　　　　this.refs.tipModal2._open('默认的提示')
+　　}
+　　render() {
+　　　　return (
+　　　　　　<View style={styles.container}>    
+　　　　　　　　<ConfirmModal ref="tipModal2"
+		 animationType='slide'        //弹出框出现消失的运动形式  
+　　　　　　　　　　confirmFunc={()=>{alert(1)}}　//确认按钮按下需要执行的操作　　　　　　　
+	     />
+　　　　　　　　<Button title="confirm" onPress={this.confirm.bind(this)}/>      
+　　　　　　</View>
+　　　　);<br>　　
+    }
+}
 ```
