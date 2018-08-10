@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button} from 'react-native';
-import { TipModal } from './src/index'
+import { TipModal,ConfirmModal } from './src/index'
 
 const instructions = Platform.select({
 ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -27,10 +27,17 @@ export default class App extends Component {
 	_error(){
 		this.refs.tipModal._error('失败了',500)
 	}
+	confirm(){
+		this.refs.tipModal2._open('默认的提示')
+	}
 	render() {
 		return (
 			<View style={styles.container}>
 				<TipModal ref="tipModal"/>
+				<ConfirmModal ref="tipModal2"
+					confirmFunc={()=>{alert(1)}}
+				/>
+				<Button title="confirm" onPress={this.confirm.bind(this)}/>
 				<Button title="loading" onPress={this.loading.bind(this)}/>
 				<Button title="_success" onPress={this._success.bind(this)}/>
 				<Button title="_error" onPress={this._error.bind(this)}/>
