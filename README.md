@@ -1,5 +1,8 @@
 # RNtips
 
+效果图
+![main](http://47.93.103.19:5900/ms.gif)
+
 ### Install react-native-ms
 
 Using npm:
