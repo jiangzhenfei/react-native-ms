@@ -66,7 +66,8 @@ export class TipModal extends React.Component{
         let {
             successIconComponent  = null, //成功自定义图标
             errorIconComponent    = null,  //失败自定义图标
-            animationType         = 'fade'
+            animationType         = 'fade',
+            opacity               = 0.5
         } = this.props;
         return (
             <Modal
@@ -76,7 +77,7 @@ export class TipModal extends React.Component{
                 onRequestClose={() => {alert("Modal has been closed.")}}
             >
                 <View style={{flex:1, marginTop: 22, justifyContent: 'center', alignItems: 'center'}}>
-                    <View style = { styles.loadingContainer }>
+                    <View style = { [ styles.loadingContainer, { opacity:opacity } ] }>
                         { this.state.loading?
                             (
                                 <View>
@@ -159,7 +160,8 @@ export class ConfirmModal extends React.Component{
     render(){
         let {
             animationType  = 'fade',      //运动形式
-            confirmFunc    = function(){} //确认按钮需要执行的函数
+            confirmFunc    = function(){}, //确认按钮需要执行的函数
+            opacity        = 0.5
         } = this.props;
         return (
             <Modal
@@ -169,7 +171,7 @@ export class ConfirmModal extends React.Component{
                 onRequestClose={() => {alert("Modal has been closed.")}}
             >
                 <View style={{flex:1, marginTop: 22, justifyContent: 'center', alignItems: 'center'}}>
-                    <View style = { [styles.loadingContainer,{justifyContent: 'flex-start', }] }>
+                    <View style = { [styles.loadingContainer,{justifyContent: 'flex-start', opacity:opacity }] }>
                         <View style = { styles.text }>
                             <Text style = {{color:"#fff"}}>{ this.state.tip }</Text>
                         </View>
@@ -202,7 +204,6 @@ const styles = StyleSheet.create({
         height:100,
         borderRadius:10,
         backgroundColor:'#000',
-        opacity:0.3,
         justifyContent: 'center', 
         alignItems: 'center'
     },
