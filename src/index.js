@@ -211,10 +211,10 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     imageContainer:{
-        width:40,
-        height:40,
+        width:30,
+        height:30,
         backgroundColor:'#fff',
-        borderRadius:20,
+        borderRadius:15,
         overflow:'hidden'
     },
     icon:{
