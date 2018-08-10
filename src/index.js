@@ -9,45 +9,63 @@ import {
     StyleSheet,
     Modal,
     ActivityIndicator,
+    Image
 } from 'react-native';
-
-
 
 export class TipModal extends React.Component{
     constructor( props ){
         super( props );
         this.state = {
-            modalVisible: true,
-            loading:true,
-            tip:'默认的提示',
-            success:true
+            modalVisible: false, 
+            loading:      false,
+            tip:          '默认的提示',
+            success:      false
         }
     }
-    //打开弹窗
+    /*打开弹窗口*/
     _open(){
         this.setState( { modalVisible:true } )
     }
-    //关闭弹窗
+    /*关闭弹窗口*/
     _close(){
         this.setState( { modalVisible:false } )
     }
-    //成功提示
-    _success( tip ){
+    /*加载中....*/
+    _loading ( ){
         this.setState( { 
+            modalVisible:true,
+            loading:true,
+        } )
+    }
+    /*成功提示*/
+    _success( tip, time ){
+        this.setState( { 
+            modalVisible:true,
             success:true,
             loading:false ,
             tip:tip || '成功'
         } )
+        setTimeout(()=>{
+            this._close()
+        },time || 1000)
     }
-    //失败提示
-    _error( tip ){
+    /*失败提示*/
+    _error( tip, time ){ 
         this.setState( { 
+            modalVisible:true,
             success:false,
             loading:false ,
             tip:tip || '失败!'
         } )
+        setTimeout(()=>{
+            this._close()
+        },time || 1000)
     }
     render(){
+        let {
+            successIconComponent  = null, //成功自定义图标
+            errorIconComponent    = null  //失败自定义图标
+        } = this.props;
         return (
             <Modal
                 animationType={"fade"}
@@ -71,9 +89,45 @@ export class TipModal extends React.Component{
                                         size="large" />
                                 </View>
                             ):(
-                                <View>
-                                    <Text style={{ color:'#fff'}}>{ this.state.tip }</Text>
-                                </View>
+                                this.state.success?
+                                (
+                                    <View>
+                                        <View style={styles.imageContainer}>
+                                            {
+                                                successIconComponent?
+                                                (   
+                                                    successIconComponent
+                                                ):(
+                                                    
+                                                    <Image
+                                                        style={styles.icon}
+                                                        source={require('./images/yes.png')}
+                                                    />
+                                                )
+                                            }
+                                        </View>
+                                        <Text style={{ color:'#fff',marginTop:5}}>{ this.state.tip }</Text>
+                                    </View>
+                                ):(
+                                    <View style={styles.parent}>
+                                        <View style={styles.imageContainer}>
+                                        {
+                                            errorIconComponent?
+                                            (
+                                                errorIconComponent
+                                            ):(
+                                                
+                                                <Image
+                                                    style={styles.icon}
+                                                    source={require('./images/no.png')}
+                                                />
+                                            )
+                                        }
+                                            
+                                        </View>
+                                        <Text style={{ color:'#fff',marginTop:5}}>{ this.state.tip }</Text>
+                                    </View>
+                                )
                             )
                         }
                     </View>
@@ -95,5 +149,20 @@ const styles = StyleSheet.create({
         opacity:0.3,
         justifyContent: 'center', 
         alignItems: 'center'
+    },
+    parent:{
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    imageContainer:{
+        width:40,
+        height:40,
+        backgroundColor:'#fff',
+        borderRadius:20,
+        overflow:'hidden'
+    },
+    icon:{
+        width:'100%',
+        height:'100%'
     }
 })
