@@ -91,40 +91,40 @@ export class TipModal extends React.Component{
                             ):(
                                 this.state.success?
                                 (
-                                    <View>
-                                        <View style={styles.imageContainer}>
-                                            {
-                                                successIconComponent?
-                                                (   
-                                                    successIconComponent
-                                                ):(
-                                                    
+                                    <View style={styles.parent}>
+                                        {
+                                            successIconComponent?
+                                            (
+                                                successIconComponent
+                                            ):(
+                                                <View style={styles.imageContainer}>
                                                     <Image
                                                         style={styles.icon}
                                                         source={require('./images/yes.png')}
                                                     />
-                                                )
-                                            }
-                                        </View>
+                                            
+                                                </View>
+                                            )
+                                        }
+                                        
                                         <Text style={{ color:'#fff',marginTop:5}}>{ this.state.tip }</Text>
                                     </View>
                                 ):(
                                     <View style={styles.parent}>
-                                        <View style={styles.imageContainer}>
                                         {
                                             errorIconComponent?
                                             (
                                                 errorIconComponent
-                                            ):(
-                                                
-                                                <Image
-                                                    style={styles.icon}
-                                                    source={require('./images/no.png')}
-                                                />
+                                            ):( 
+                                                <View style={styles.imageContainer}>             
+                                                    <Image
+                                                        style={styles.icon}
+                                                        source={require('./images/no.png')}
+                                                    />
+                                                </View>
                                             )
                                         }
-                                            
-                                        </View>
+                                        
                                         <Text style={{ color:'#fff',marginTop:5}}>{ this.state.tip }</Text>
                                     </View>
                                 )
