@@ -1,5 +1,7 @@
 /*
     弹窗提示组件
+    TipModal
+    ConfirmModal
 */
 
 import React from 'react';
