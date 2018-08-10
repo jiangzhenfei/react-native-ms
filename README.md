@@ -41,7 +41,7 @@ export default class App extends Component {
 }
 ```
 ### Props
-#### 1.successIconComponent
+#### 1.animationType
 提示框的出现和消失运动形式 none | fade (default) | slide
 * none  没有任何运动效果
 * fade  从屏幕中间隐现
