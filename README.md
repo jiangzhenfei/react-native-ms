@@ -72,7 +72,7 @@ export default class App extends Component {
 ```
 
 #### 3.errorIconComponent
-组件有默认的成功提示图片，但是并不能符合所有人要求，使用如下
+组件有默认的失败提示图片，但是并不能符合所有人要求，使用如下
 ```js
 <TipModal ref="tipModal"
   errorIconComponent={
