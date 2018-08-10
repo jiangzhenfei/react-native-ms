@@ -1,6 +1,6 @@
 # RNtips
 
-### Install iView
+### Install react-native-ms
 
 Using npm:
 ```
