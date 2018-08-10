@@ -85,6 +85,13 @@ export default class App extends Component {
   }
 />
 ```
+#### 4.opacity
+组件有默认弹出框透明度为0.5，自定义透明度
+```js
+<TipModal ref="tipModal"
+   opacity = { 0.5 }
+/>
+```
 
 ## ConfirmModal的使用
 ```js
