@@ -25,11 +25,11 @@ export default class App extends Component {
 		this.refs.tipModal._loading()
 	}
   /* 打开成功提示框,参数一是提示内容，参数二是多少时间自动关闭*/
-	_success(){
+	success(){
 		this.refs.tipModal._success('成功了',500)
 	}
   /* 打开失败提示框,参数一是提示内容，参数二是多少时间自动关闭*/
-	_error(){
+	error(){
 		this.refs.tipModal._error('失败了',500)
 	}
 	render() {
@@ -37,8 +37,8 @@ export default class App extends Component {
 			<View style={styles.container}>
 				<TipModal ref="tipModal"/>
 				<Button title="loading" onPress={this.loading.bind(this)}/>
-				<Button title="_success" onPress={this._success.bind(this)}/>
-				<Button title="_error" onPress={this._error.bind(this)}/>
+				<Button title="_success" onPress={this.success.bind(this)}/>
+				<Button title="_error" onPress={this.error.bind(this)}/>
 			</View>
 		);
 	}
